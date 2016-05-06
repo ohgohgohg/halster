@@ -5,7 +5,7 @@ language: node_js
 script:
   # This command generates a release.zip file.
   - make test-travis
-  - make dist
+  - make zip
 deploy:
   provider: releases
   api_key: " f5a66816def8c3e1cba8f430ef2387526960e3a5"
