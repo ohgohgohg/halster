@@ -2,5 +2,15 @@ node_js:
 - "0.10"
 - "0.11"
 language: node_js
-script: "make test-travis"
+script:
+  # This command generates a release.zip file.
+  - make test-travis
+  - make dist
+deploy:
+  provider: releases
+  api_key: " f5a66816def8c3e1cba8f430ef2387526960e3a5"
+  file: 'release.zip'
+  skip_cleanup: true
+  on:
+    tags
 after_script: "npm install coveralls@2 && cat ./coverage/lcov.info | coveralls"
